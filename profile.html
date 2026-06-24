@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Учусь.РФ — Личный кабинет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../../assets/images/students_corner.png" alt="Учусь.РФ" width="40" height="40" style="vertical-align:middle;margin-right:8px;">
+                Учусь.<span>РФ</span>
+            </a>
+        </div>
+        <nav>
+            <span class="user-greeting" id="welcome">Привет!</span>
+            <a href="apply.html" class="btn-outline" style="border-color:rgba(255,255,255,0.4);">Заявка</a>
+            <a href="#" class="logout-btn">Выйти</a>
+        </nav>
+    </header>
+
+    <div class="container dashboard">
+        <!-- Слайдер -->
+        <div class="card">
+            <div class="slider">
+                <div class="slider-track">
+                    <div class="slide"><img src="../../assets/images/все-курсы.jpg" alt="Все курсы" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="slide"><img src="../../assets/images/hero.png" alt="Курсы" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="slide"><img src="../../assets/images/283cb9bf-c05f-5f17-8a87-755848f90072.jpg" alt="Курсы" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="slide"><img src="../../assets/images/88-gHQq11R0.jpg" alt="Курсы" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <button class="slider-btn prev">‹</button>
+                <button class="slider-btn next">›</button>
+                <div class="slider-dots"></div>
+            </div>
+        </div>
+
+        <!-- Мои заявки -->
+        <div class="card">
+            <h2>Мои заявки</h2>
+            <div id="appsList"></div>
+        </div>
+
+        <!-- Отзывы -->
+        <div class="card">
+            <h3>Оставить отзыв</h3>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label>Выберите завершённый курс</label>
+                    <select id="reviewApp" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Ваш отзыв</label>
+                    <input type="text" id="reviewText" placeholder="Напишите впечатления о курсе..." required>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Мои отзывы</h3>
+            <div id="reviewsList"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Учусь.РФ. Все права защищены.</p>
+            <p>г. Москва, ул. Большая Ордынка, д. 15</p>
+            <p>Тел: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
