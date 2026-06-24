@@ -1,0 +1,815 @@
+/* ===== Подключение шрифта Inter через Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+/* ===== Базовые переменные (Руководство по стилю) ===== */
+:root {
+    --blue: #007bff;
+    --dark-blue: #0d47a1;
+    --gray: #ced4da;
+    --light-gray: #dee2e6;
+    --white: #ffffff;
+    --error: #dc3545;
+    --success: #28a745;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 400;
+    background: #f8f9fa;
+    color: #212529;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 16px;
+    flex: 1;
+}
+
+/* ===== Заголовки (по Руководству) ===== */
+h1 {
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--dark-blue);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--dark-blue);
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--dark-blue);
+}
+
+.small {
+    font-weight: 300;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* ===== Шапка ===== */
+header {
+    background: var(--blue);
+    color: var(--white);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+header .logo a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+header .logo span {
+    color: #bbdefb;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+header nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+header nav a:hover {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.user-greeting {
+    font-weight: 500;
+    color: #bbdefb;
+    margin-right: 4px;
+}
+
+/* ===== Герой ===== */
+.hero {
+    padding: 32px 0 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-bottom: 3px solid var(--blue);
+}
+
+.hero h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 16px;
+    max-width: 400px;
+    margin: 0 auto 18px;
+    color: #333;
+}
+
+/* ===== Карточки ===== */
+.card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-top: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--light-gray);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Формы ===== */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.form-group .error-msg {
+    color: var(--error);
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 4px;
+    display: none;
+}
+
+.form-group.invalid input,
+.form-group.invalid select {
+    border-color: var(--error);
+}
+
+.form-group.invalid .error-msg {
+    display: block;
+}
+
+/* ===== Кнопки ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--dark-blue);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background: var(--gray);
+    color: #212529;
+}
+
+.btn-secondary:hover {
+    background: #adb5bd;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 13px;
+    width: auto;
+}
+
+.btn-success {
+    background: var(--success);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+/* ===== Ссылки ===== */
+.switch-link {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.switch-link a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Уведомления ===== */
+.toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+    background: var(--error);
+}
+
+.toast.success {
+    background: var(--success);
+}
+
+/* ===== Слайдер ===== */
+.slider-section {
+    padding: 24px 0;
+}
+
+.slider-section h2 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: var(--gray);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+}
+
+.slide:nth-child(2) {
+    background: linear-gradient(135deg, var(--dark-blue), #002171);
+}
+
+.slide:nth-child(3) {
+    background: linear-gradient(135deg, #1976d2, var(--dark-blue));
+}
+
+.slide:nth-child(4) {
+    background: linear-gradient(135deg, #1565c0, #003c8f);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--dark-blue);
+    transition: background 0.2s, transform 0.2s;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+}
+
+.slider-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 0 16px;
+}
+
+.slider-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.slider-dots span.active {
+    background: var(--blue);
+    transform: scale(1.2);
+}
+
+.slider-dots span:hover {
+    background: var(--blue);
+}
+
+/* ===== Информация и контакты ===== */
+.info-contacts {
+    padding: 24px 0;
+    background: var(--white);
+}
+
+.info-contacts .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact-card {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--light-gray);
+}
+
+.contact-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.contact-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+.contact-card ul li {
+    padding: 3px 0 3px 18px;
+    position: relative;
+}
+
+.contact-card ul li::before {
+    content: "•";
+    color: var(--blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.contact-card a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+/* ===== Личный кабинет ===== */
+.dashboard {
+    padding: 16px 0;
+}
+
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.application {
+    background: #f8f9fa;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border-left: 4px solid var(--blue);
+    animation: fadeIn 0.3s ease;
+}
+
+.application .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.application .app-course {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--dark-blue);
+}
+
+.application .app-details {
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
+}
+
+.application .app-details span {
+    margin-right: 12px;
+}
+
+.application .app-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.status {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.status-new {
+    background: #6c757d;
+}
+
+.status-active {
+    background: var(--blue);
+}
+
+.status-done {
+    background: var(--success);
+}
+
+.review-disabled {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.app-review {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px 0;
+    color: #6c757d;
+}
+
+.empty-state a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ===== Мини-слайдер в кабинете ===== */
+.mini-slider .slide {
+    height: 120px;
+    font-size: 16px;
+}
+
+/* ===== Админ-панель ===== */
+.admin-panel {
+    padding: 16px 0;
+}
+
+.admin-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    background: var(--white);
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--light-gray);
+}
+
+.admin-tools .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 120px;
+}
+
+.admin-tools .filter-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+}
+
+.admin-tools .filter-group input,
+.admin-tools .filter-group select {
+    padding: 8px 12px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    font-family: var(--font);
+    font-size: 14px;
+}
+
+.admin-tools .filter-group .btn {
+    width: auto;
+    padding: 8px 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.admin-table th {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-table th:hover {
+    background: #0a3a7a;
+}
+
+.admin-table th .sort-icon {
+    margin-left: 4px;
+}
+
+.admin-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--light-gray);
+    vertical-align: middle;
+}
+
+.admin-table tr:hover td {
+    background: #f8f9fa;
+}
+
+.admin-table .status-sel {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--gray);
+    font-family: var(--font);
+    font-size: 13px;
+}
+
+.admin-table .save-btn {
+    padding: 4px 12px;
+    font-size: 13px;
+    width: auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    padding: 6px 14px;
+    border: 1px solid var(--gray);
+    background: var(--white);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.pagination button:hover:not(.active) {
+    background: var(--light-gray);
+}
+
+.pagination button.active {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== Отзывы ===== */
+.review-item {
+    background: #f8f9fa;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--blue);
+}
+
+.review-item .review-course {
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.review-item .review-text {
+    font-size: 14px;
+    color: #333;
+    margin-top: 2px;
+}
+
+/* ===== Футер ===== */
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: auto;
+    border-top: 3px solid var(--blue);
+}
+
+footer .container {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 2px 0;
+}
+
+footer a {
+    color: #bbdefb;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 18px 16px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .slide {
+        height: 160px;
+        font-size: 16px;
+    }
+
+    .mini-slider .slide {
+        height: 100px;
+        font-size: 14px;
+    }
+
+    .info-contacts .container {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-tools {
+        flex-direction: column;
+    }
+
+    .admin-tools .filter-group {
+        min-width: unset;
+    }
+
+    .admin-table {
+        font-size: 13px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 8px 10px;
+    }
+}
